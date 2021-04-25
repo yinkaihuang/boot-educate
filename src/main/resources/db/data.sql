@@ -1,0 +1,1 @@
+insert ignore  into t_user_table(id,name,identity_card,gender,birth_day,create_time,update_time) value(1,'测试','42105619973177843',1,'1997-03-1',now(),now());

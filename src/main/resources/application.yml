@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    #数据URL配置
+    url: jdbc:mysql://127.0.0.1:3306/educate?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    #执行SQL语句模式，这里为每次启动都会执行
+    initialization-mode: always
+    schema: classpath:db/table.sql
+    data: classpath:db/data.sql
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    schema-username: root
+#    schema-password: yinchong@123
+#    data-username: root
+#    data-password: yinchong@123
+  application:
+    name: boot-educate
+
+server:
+  port: 8090
+  servlet:
+    context-path: /educate
+mybatis:
+  #mapper文件路径位置
+  mapper-locations: classpath:mapper/*Mapper.xml
+  #别名扫描的包路径
+  type-aliases-package: cn.educate.boot.demo.model
+  configuration:
+    #是否将对象中驼峰写法转变到数据库中下划线
+    map-underscore-to-camel-case: true
+logging:
+  # 指定加载log4j的配置文件位置 详情讲解可以查看https://www.cnblogs.com/keeya/p/10101547.html
+  config: classpath:log4j/log4j.xml
